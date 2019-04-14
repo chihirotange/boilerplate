@@ -28,6 +28,7 @@ function reload(done) {
 // =====================================
 function watchTask() {
 	watch("*.html", reload);
+	watch("./src/js/*", reload);
 
 	// sass
 	watch("./src/sass/**/*.scss", function() {
