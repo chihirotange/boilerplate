@@ -37,7 +37,7 @@ function watchTask() {
 		return gulp.src("./src/sass/**/*.scss")
 			.pipe(sass().on('error', sass.logError))
 			.pipe(autoprefixer({
-				browsers: ['last 10 versions'],
+				browsers: ['last 5 versions'],
 				cascade: false
 			}))
 			.pipe(postcss([cssnano()]))
