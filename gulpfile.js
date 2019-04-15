@@ -6,6 +6,8 @@ const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 const autoprefixer = require('gulp-autoprefixer');
 const imagemin = require('gulp-imagemin');
+const imageminmozjpeg = require('imagemin-mozjpeg');
+const imageminpngquant = require('imagemin-pngquant');
 
 //BROWSER
 // ====================================
@@ -49,8 +51,11 @@ function watchTask() {
 function imageMin() {
 	return gulp.src('./src/img/*')
 		.pipe(imagemin([
-			imagemin.optipng({
-				optimizationLevel: 5
+			imageminpngquant({
+				quality: [0.4, 0.7]
+			}),
+			imageminmozjpeg({
+				quality:50
 			})
 		]))
 		.pipe(gulp.dest('./dist/img'));
