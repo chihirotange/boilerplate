@@ -6,5 +6,19 @@ module.exports = {
         // change this name V
         filename: "sumi_verification_bundle.js",
         path: path.resolve("./dist/js")
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: "/node_modules",
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            }
+        ]
     }
 };

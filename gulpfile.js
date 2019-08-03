@@ -78,4 +78,3 @@ function scripts(done) {
 // EXPORTS
 exports.default = series(serve, watchTask);
 exports.imagemin = series(imageMin);
-exports.scripts = series(scripts);
