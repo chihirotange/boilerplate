@@ -1,0 +1,81 @@
+// VARIABLES
+$blueGray: #869a9a;
+$white: #fff;
+$pink: #f18a9b;
+$gray: #707070;
+
+// GLOBALS
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: $blueGray;
+    font-size: 16px;
+}
+
+.verification {
+
+    &__container {
+        max-width: 375px;
+        margin: 2rem auto;
+    }
+
+    &__form {
+        background-color: $white;
+        border-radius: 30px;
+        overflow: hidden;
+        padding-bottom: 2rem;
+    }
+
+    &__gutter {
+        padding: 0 1.5rem;
+        text-align: center;
+    }
+
+    &__img {
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+        transform: translateY(9%);
+    }
+
+    &__tab {
+        display: flex;
+        height: 5rem;
+    }
+
+    &__link {
+        flex-grow: 1;
+        background-color: $white;
+        border: none;
+        padding: 1rem;
+        text-transform: uppercase;
+        font-size: 1.25rem;
+        color: $pink;
+        font-weight: 600;
+    }
+
+    &__description {
+        font-weight: 600;
+        color: $gray;
+        font-size: 1.2rem;
+        margin: 2.5rem 0;
+    }
+
+    &__btn {
+        width: 100%;
+        background-color: $pink;
+        border: none;
+        border-radius: 150px;
+        padding: 1rem;
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: $white;
+    }
+
+}
