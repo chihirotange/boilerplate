@@ -8,6 +8,8 @@ const autoprefixer = require('gulp-autoprefixer');
 const imagemin = require('gulp-imagemin');
 const imageminmozjpeg = require('imagemin-mozjpeg');
 const imageminpngquant = require('imagemin-pngquant');
+const webpack = require('webpack');
+
 
 //BROWSER
 // ====================================
@@ -30,7 +32,7 @@ function reload(done) {
 // =====================================
 function watchTask() {
 	watch("*.html", reload);
-	watch("./src/js/*", reload);
+	watch("./src/js/**/*.js", series(scripts, reload));
 
 	// sass
 	watch("./src/sass/**/*.scss", function() {
@@ -61,7 +63,19 @@ function imageMin() {
 		.pipe(gulp.dest('./dist/img'));
 }
 
+// WEBPACK
+function scripts(done) {
+	webpack(require('./webpack.config.js'), function(err, stats) {
+		if (err) {
+			console.log(err.toString());
+		}
+		console.log(stats.toString());
+	});
+	done();
+}
+
 
 // EXPORTS
 exports.default = series(serve, watchTask);
 exports.imagemin = series(imageMin);
+exports.scripts = series(scripts);
